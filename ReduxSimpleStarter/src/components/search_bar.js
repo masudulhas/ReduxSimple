@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 
-//1st method
+//**1st method
 // const SearchBar = () => {
 //   return <input />;
 // };
-// 2nd method class
+//**2nd method class
 //error handling
 // class SearchBar extends Component{
 //   render(){
 //     return <input onChange={event => console.log(event.target.value)} />;
 //   }
 // }
-//event handling
+//**event handling
 //   render(){
 //     return <input onChange={this.onInputChange} />;
 //   }
@@ -20,6 +20,24 @@ import React, {Component} from 'react';
 //     console.log(event.target.value);
 //   }
 // }
+//**State
+// class SearchBar extends Component{
+//   constructor(props){
+//     super(props);
+//
+//     this.state = {term: ''};
+//   }
+//   render(){
+//     return(
+//       <div>
+//       <input onChange = {event => this.setState({ term: event.target.value })}/>
+//       value of the input: {this.state.term}
+//       </div>
+//     );
+//   }
+// }
+// export default SearchBar;
+//Controlled Component
 class SearchBar extends Component{
   constructor(props){
     super(props);
@@ -29,10 +47,13 @@ class SearchBar extends Component{
   render(){
     return(
       <div>
-      <input onChange = {event => this.setState({ term: event.target.value })}/>
-      value of the input: {this.state.term}
+      <input
+      value = {this.state.term}
+      onChange = {event => this.setState({ term: event.target.value })}/>
+
       </div>
     );
   }
 }
 export default SearchBar;
+//finish
